@@ -2,9 +2,15 @@
 require("dotenv").config();
 class ApiController{
   index(req,res){
-    const {hub_challenge} = req.body;
-    console.log(req.body);
-    res.send(hub_challenge);
+    const dados = req.query['hub.challenge'];
+    console.log('query',req.query);
+    console.log('body',req.body);
+    const {entry} = req.body;
+    console.log('\n\n',entry[0].changes,'\n\n');
+    console.log('\n\n',JSON.parse(entry),'\n\n')
+    console.log('params',req.params);
+
+    res.send(dados);
   }
 }
 
